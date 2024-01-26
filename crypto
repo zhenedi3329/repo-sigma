@@ -1,0 +1,36 @@
+public class p2601 {
+    private String name;
+    private double price;
+    private static long circulating;
+    private static long totalSolo = 0;
+    public p2601(String name,
+                 double price,
+                 long circulating) {
+        this.name = name;
+        this.price = price;
+        this.circulating = circulating;
+        totalSolo = totalSolo + circulating;
+    }
+    public static double calculatePrice(p2601[] currency){
+        double result = 0;
+        for(p2601 cur : currency){
+            result += cur.price * circulating;
+            
+        }
+    }
+}
+
+
+
+
+
+--------------
+
+public class BitCoin ecxtends p2601 {
+    public BitCoin(String name, double price, long circ){
+        super(name, price, circ);
+    }
+    public String toString(){
+        return "BTC";
+    }
+}
