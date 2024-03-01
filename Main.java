@@ -1,28 +1,50 @@
-import java.util.Scanner;
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter the first number: ");
-        int num1 = scanner.nextInt();
-
-        System.out.println("Enter the second number: ");
-        int num2 = scanner.nextInt();
-
-        System.out.println("Enter the third number: ");
-        int num3 = scanner.nextInt();
-
-        int bigsigma = num1;
-
-        if (num2 > bigsigma) {
-            bigsigma = num2;
-        }
-
-        if (num3 > bigsigma) {
-            bigsigma = num3;
-        }
-
-        System.out.println("The largest number is: " + bigsigma);
+public class Sigma {
+    private static final String specialSymbols = ",.:;-=+@";
+    static boolean validatepass(String passwordtovalidate){
+        if (passwordtovalidate == null ||
+                passwordtovalidate.length() < 8) {
+            return false;
     }
-}
+        int upper = 0;
+        int lower = 0;
+        int digits = 0;
+        int special = 0;
+        for (int i = 0; i < passwordtovalidate.length(); i++){
+            char ch = passwordtovalidate.charAt(i);
+            if(Character.isDigit(ch)) digits++;
+            if(Character.isUpperCase(ch)) upper++;
+            if(Character.isLowerCase(ch)) lower++;
+            if(specialSymbols.contains(ch+ ""));
+        }
+        if (lower < 1){
+            System.out.println("Password" +
+                    " must contain at" +
+                    " least one lowercase letter");
+            return false;
+
+        }
+        if (upper < 1){
+            System.out.println("Password" +
+                    " must contain at" +
+                    " least one uppercase letter");
+            return false;
+
+        }
+        if (digits < 1){
+            System.out.println("Password" +
+                    " must contain at" +
+                    " least one digit letter");
+            return false;
+
+
+        }
+        if (special  < 1){
+            System.out.println("Password" +
+                    " must contain at" +
+                    " least one special letter");
+            return false;
+
+        }
+
+    }
+
